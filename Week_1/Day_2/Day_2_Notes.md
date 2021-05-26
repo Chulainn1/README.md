@@ -93,6 +93,14 @@ My function joinList takes in an array, iterates over it and places a comma if t
 
 ## Function Best Practices
 
+1. Give your functions precise verb/action based names
+2. Use camelCasedNames (like this one)
+3. Properly indent the function code
+4. Functions should focus on a single task: returning a value or causing a side effect. Break your function into additional smaller functions if you find it doing two or more things
+    * One single task could be to compute and return a value (eg: zeroPad)
+    * Another single task could be to perform a side effect such as logging a message to the screen (eg: printFarmInventory)
+5. Data needed by Functions should be passed in as parameters/arguments (i.e. local scope) instead of being accessed directly
+
 Read [Growing Functions + Functions & Side Effects](https://eloquentjavascript.net/03_functions.html#h_eVDWIAuyBK) documentation. Here is a summary. 
 
 * Two natural ways for functions to be introduced into programs.
@@ -108,6 +116,8 @@ Read [Growing Functions + Functions & Side Effects](https://eloquentjavascript.n
 
 * A `pure` function is a specific kind of value-producing function that not only has no side effects but also doesn’t rely on side effects from other code—for example, it doesn’t read global bindings whose value might change. 
 
+* Functions that take in parameters are more reusable, since they are less dependent on their surroundings, (i.e. their outer scope).
+
 ### Rolling Dice Problem 
 
 Write a program that takes a single parameter from the command line, a number, and rolls that many six-sided dice.
@@ -115,28 +125,33 @@ Write a program that takes a single parameter from the command line, a number, a
 This problem was harder for me and my solution is not the best way for it to be solved. However, I did solve it. Here is my solution: 
 
 ```js 
-let num = Number(process.argv.splice(2));
+let numOfDie = Number(process.argv.splice(2));
 
-const rollDice = function(num) {
+const rollDice = function(numOfDie) {
   let arr = [];
   let results = '';
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < numOfDie; i++) {
     let diceRolls = "";
-    diceRolls =  Math.floor((Math.random() * 6) + 1);
+    diceRolls = randomNum();
     arr.push(diceRolls);
   }
   for (let i = 0; i < arr.length; i++) {
-    const word = arr[i];
+    const roll = arr[i];
     if (i < arr.length - 1) {
-      results += word.toString() + ", ";
+      results += roll.toString() + ", ";
     } else {
-      results += word.toString() + "";
+      results += roll.toString();
     }
   }
   return results;
 };
 
-console.log("Rolled " + num + " dice: " + rollDice(num));
+const randomNum = function() {
+  return Math.ceil((Math.random() * 6));
+};
+
+
+console.log(`Rolled ${numOfDie} die:`, rollDice(numOfDie));
 ```
 
 ## Fixing Buggy Code - Console Log
