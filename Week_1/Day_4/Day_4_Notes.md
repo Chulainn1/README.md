@@ -55,3 +55,24 @@ This includes callbacks.
 
 Built-in functions such as `forEach` and `filter` and others are "Higher-Order Functions". 
 
+# Vim
+
+Vim is a code editor thats been around since 1991. Familiarity with basic vim commands is pretty useful - if not absolutely necessary - if you have to edit a file in a remote ssh terminal.
+
+Vim has two modes: 
+
+1. `edit mode`: the state in which the keys you type on are actually inserted into your doc.
+
+2. `command mode`: allows you to navigate through the doc, search and replace text, copy and paste, etc... 
+
+By default you are placed in command mode. To switch to `edit mode` press `i` to insert text at the cursor position. Press `a` to insert after the cursor position. Get out of edit mode by pressing `Esc`. 
+
+Use the keys `H` to move left; `K` to move up; `L` to move right; `J` to move down.
+
+
+Use the keys (while in command mode):
+* `Y` to copy a line fo text to the `buffer`.
+* `P` pastes it to the cursor's current position. 
+* `dd` will delete the whole line of text. It also "cuts" it as it is placed in the buffer. 
+*  `yy` copies a whole lne of text
+* `:w` to save the text. 
