@@ -115,3 +115,9 @@ for (var planet in planetMoons) {
   console.log("Planet: " + planet + ", # of Moons: "+ numberOfMoons);
 }
 ```
+
+## Bonus on Primitives and Objects in JS
+
+In JS, primitives do not have properties. However, primitives has a corresponding object constructor.
+
+And object constructor can be invoked with the word new.
