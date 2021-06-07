@@ -118,6 +118,9 @@ for (var planet in planetMoons) {
 
 ## Bonus on Primitives and Objects in JS
 
-In JS, primitives do not have properties. However, primitives has a corresponding object constructor.
+In JS, primitives do not have properties. However, primitives have a corresponding object constructor. What's the deal with "some string".length or 5.toString()?
+Are we not trying to access a property of a primitive?
 
-And object constructor can be invoked with the word new.
+An object constructor can be invoked with the word new. Each object has methods associated with them based on what constructor was used. 
+
+Almost all primitive types have their equivalent object representations, such that we can invoke properties on those primitive types. JavaScript performs type coercion on strings, numbers, and other primitive types, turning them into objects in order to make them act like objects.
